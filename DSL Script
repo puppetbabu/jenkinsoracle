@@ -1,0 +1,12 @@
+job('SimpleJobWithParameter') { 
+ parameters {
+stringParam('Object', 'Unsubscribed', 'This parameter describes type of the object')
+}
+steps {
+shell('echo $JOB_NMAE $BUILD_NUMBER')
+shell('echo $Object')
+}
+  publishers {
+    downstream('simpleJobWithparameters', 'SUCCESS')
+  }
+}
